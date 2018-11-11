@@ -47,6 +47,26 @@ class Dashboard extends React.Component {
     return (
       <div>
         <GridContainer>
+          <GridItem xs={12} sm={12} md={12}>
+            <Card chart>
+              <CardHeader color="success">
+                <h1>
+                  Welcome to Mine <b>A</b>
+                </h1>
+              </CardHeader>
+              <CardBody>
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={10}>
+                    About Mine A
+                    Blah BlahBlah BlahBlah BlahBlah BlahBlah BlahBlah BlahBlah BlahBlah BlahBlah BlahBlah Blah
+                  </GridItem>
+                  <GridItem xs={12} sm={12} md={2}>
+                    <img src="image.jpg" alt="someimage" />
+                  </GridItem>
+                </GridContainer>
+              </CardBody>
+            </Card>
+          </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <Card chart>
               <CardHeader color="success">
