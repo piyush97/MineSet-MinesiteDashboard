@@ -8,6 +8,11 @@ import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
+import Primary from "components/Typography/Primary.jsx";
+import Info from "components/Typography/Info.jsx";
+import Success from "components/Typography/Success.jsx";
+import Warning from "components/Typography/Warning.jsx";
+// import Danger from "components/Typography/Danger.jsx";
 import {
   AirQuality,
   WaterQuality,
@@ -31,13 +36,13 @@ class TableList extends React.Component {
           acccordianchoice: changes
         });
       }.bind(this),
-      5000
+      3000
     );
   }
 
   render() {
     return (
-      <GridContainer> 
+      <GridContainer>
         <GridItem xs={12} sm={6} md={6} lg={6}>
           <Card chart>
             <CardHeader color="warning">
@@ -51,8 +56,10 @@ class TableList extends React.Component {
               />
             </CardHeader>
             <CardBody>
-              <h4><b>Monthly Average</b> Air Quality Index</h4>
-              <p> Last Campaign Performance </p>
+              <h4>
+                <b>Monthly Average Air Quality Index</b>
+              </h4>
+              <Warning> Last Campaign Performance </Warning>
             </CardBody>
             <CardFooter chart>
               <div>
@@ -74,8 +81,10 @@ class TableList extends React.Component {
               />
             </CardHeader>
             <CardBody>
-              <h4><b>Monthly Average</b> Water Quality Index</h4>
-              <p> Last Campaign Performance </p>
+              <h4>
+                <b>Monthly Average Water Quality Index</b>
+              </h4>
+              <Primary> Last Campaign Performance </Primary>
             </CardBody>
             <CardFooter chart>
               <div>
@@ -98,10 +107,9 @@ class TableList extends React.Component {
             </CardHeader>
             <CardBody>
               <h4>
-                <b>Monthly Average</b> Noise
-                Index
+                <b>Monthly Average Noise Index</b>
               </h4>
-              <p> Last Campaign Performance </p>
+              <Info> Last Campaign Performance </Info>
             </CardBody>
             <CardFooter chart>
               <div>
@@ -114,20 +122,18 @@ class TableList extends React.Component {
           <Card chart>
             <CardHeader color="success">
               <ChartistGraph
-                className="ct-chart"
                 data={completedTasksChart.data}
                 type="Line"
                 options={completedTasksChart.options}
                 responsiveOptions={completedTasksChart.responsiveOptions}
                 listener={completedTasksChart.animation}
-                />
+              />
             </CardHeader>
             <CardBody>
               <h4>
-                <b>Monthly Average</b> Meterological
-                Data
+                <b> Average Meterological Data </b>
               </h4>
-              <p> Last Campaign Performance </p>
+              <Success> Last Campaign Performance </Success>
             </CardBody>
             <CardFooter chart>
               <div>

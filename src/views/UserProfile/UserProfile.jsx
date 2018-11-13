@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -11,22 +11,31 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 // import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 // import CardHeader from "components/Card/CardHeader.jsx";
-// import MenuItem from '@material-ui/core/MenuItem';
+// import MenuItem from "@material-ui/core/MenuItem";
 import FiberManualRecord from "@material-ui/icons/FiberManualRecord";
 // import CardAvatar from "components/Card/CardAvatar.jsx";
 // import CardBody from "components/Card/CardBody.jsx";
 // import CardFooter from "components/Card/CardFooter.jsx";
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Button, FormHelperText, Radio, Select, FormControl, InputLabel, MenuItem } from "@material-ui/core";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import SweetAlert from "react-bootstrap-sweetalert";
+import {
+  Button,
+  FormHelperText,
+  Radio,
+  Select,
+  FormControl,
+  InputLabel,
+  MenuItem
+} from "@material-ui/core";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import moment from "moment";
 const styles = theme => ({
   root: {
-    width: '100%',
+    width: "100%"
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -40,8 +49,11 @@ class UserProfile extends React.Component {
     this.state = {
       selectedValue: null,
       age: "",
-      acccordianchoice: ""
+      acccordianchoice: "",
+      SweetAlert: false,
+      hideAlert: false
     };
+    this.modalclicker = this.modalclicker.bind(this);
   }
   componentDidMount() {
     window.setInterval(
@@ -59,6 +71,11 @@ class UserProfile extends React.Component {
       selectedValue: event.target.value
     });
   };
+
+  modalclicker() {
+    this.setState({ SweetAlert: true });
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -66,12 +83,19 @@ class UserProfile extends React.Component {
       <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
-          <h1>Periodic Data Entry</h1>
+            <h1>Periodic Data Entry</h1>
+            {this.state.SweetAlert &&
+              <SweetAlert success title="Woot!" onConfirm={this.hideAlert}>
+                I did it!
+              </SweetAlert>
+            }
             <Card>
               <div className={classes.root}>
                 <ExpansionPanel>
                   <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography className={classes.heading}>Air Quality</Typography>
+                    <Typography className={classes.heading}>
+                      Air Quality
+                    </Typography>
                   </ExpansionPanelSummary>
                   <ExpansionPanelDetails>
                     <GridContainer>
@@ -82,128 +106,152 @@ class UserProfile extends React.Component {
                     <GridContainer>
                       <GridItem xs={12} lg={3} md={3}>
                         <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "PM 10"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "PM 2.5"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "NO2"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "O3"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "CO"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "SO2"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "NH3"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "Pb"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
+                          id="regular"
+                          inputProps={{
+                            placeholder: "PM 10"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
                         />
                       </GridItem>
-                        <GridItem xs={12} lg={12} md={12} xl={12}>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "PM 2.5"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "NO2"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "O3"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "CO"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                      />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "SO2"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "NH3"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Pb"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={12} md={12} xl={12}>
                         <label>Mine A</label>
                         <Radio
-                          checked={this.state.selectedValue === 'a'}
+                          checked={this.state.selectedValue === "a"}
                           onChange={this.handleChange}
                           value="a"
                           name="Mine A"
                           aria-label="A"
-                          icon={<FiberManualRecord className={classes.radioUnchecked}/>}
-                          checkedIcon={<FiberManualRecord className={classes.radioChecked}/>}
-                          classes={{
-                            checked: classes.radio,
-                          }}
-                        />
-                        <label>Mine B</label>
-                        <Radio
-                          checked={this.state.selectedValue === 'b'}
-                          onChange={this.handleChange}
-                          value="b"
-                          name="radio button demo"
-                          aria-label="B"
-                          icon={<FiberManualRecord className={classes.radioUnchecked}/>}
-                          checkedIcon={<FiberManualRecord className={classes.radioChecked}/>}
+                          icon={
+                            <FiberManualRecord
+                              className={classes.radioUnchecked}
+                            />
+                          }
+                          checkedIcon={
+                            <FiberManualRecord
+                              className={classes.radioChecked}
+                            />
+                          }
                           classes={{
                             checked: classes.radio
                           }}
                         />
-                          <label>Mine C</label>
+                        <label>Mine B</label>
                         <Radio
-                          checked={this.state.selectedValue === 'c'}
+                          checked={this.state.selectedValue === "b"}
+                          onChange={this.handleChange}
+                          value="b"
+                          name="radio button demo"
+                          aria-label="B"
+                          icon={
+                            <FiberManualRecord
+                              className={classes.radioUnchecked}
+                            />
+                          }
+                          checkedIcon={
+                            <FiberManualRecord
+                              className={classes.radioChecked}
+                            />
+                          }
+                          classes={{
+                            checked: classes.radio
+                          }}
+                        />
+                        <label>Mine C</label>
+                        <Radio
+                          checked={this.state.selectedValue === "c"}
                           onChange={this.handleChange}
                           value="C"
                           name="radio button demo"
                           aria-label="C"
-                          icon={<FiberManualRecord className={classes.radioUnchecked}/>}
-                          checkedIcon={<FiberManualRecord className={classes.radioChecked}/>}
+                          icon={
+                            <FiberManualRecord
+                              className={classes.radioUnchecked}
+                            />
+                          }
+                          checkedIcon={
+                            <FiberManualRecord
+                              className={classes.radioChecked}
+                            />
+                          }
                           classes={{
                             checked: classes.radio
                           }}
@@ -211,20 +259,26 @@ class UserProfile extends React.Component {
                         <FormHelperText>Select Mine </FormHelperText>
                         <GridItem xs={12} lg={12} md={12}>
                           <center>
-                            <Button color="primary" type="success">
+                            <Button
+                              onClick={this.modalclicker}
+                              color="primary"
+                              type="success"
+                            >
                               Submit
                             </Button>
                           </center>
+                        </GridItem>
                       </GridItem>
-                    </GridItem>
-                  </GridContainer>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-              <ExpansionPanel>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography className={classes.heading}>Water Quality</Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                    </GridContainer>
+                  </ExpansionPanelDetails>
+                </ExpansionPanel>
+                <ExpansionPanel>
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography className={classes.heading}>
+                      Water Quality
+                    </Typography>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
                     <GridContainer>
                       <GridItem xs={12} lg={7} md={7}>
                         <b>Time:</b> {this.state.acccordianchoice}
@@ -233,98 +287,107 @@ class UserProfile extends React.Component {
                     <GridContainer>
                       <GridItem xs={12} lg={3} md={3}>
                         <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "pH value"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "Total Dissolved Solids"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "Chlorides"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={3} md={3}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "Sulphates"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={4} md={4}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "Nitrates"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={4} md={4}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "Phlorides"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                      />
-                      </GridItem>
-                      <GridItem xs={12} lg={4} md={4}>
-                        <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "Iron"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
+                          id="regular"
+                          inputProps={{
+                            placeholder: "pH value"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
                         />
                       </GridItem>
-                        <GridItem xs={12} lg={12} md={12} xl={12}>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Total Dissolved Solids"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Chlorides"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Sulphates"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={4} md={4}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Nitrates"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={4} md={4}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Phlorides"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={4} md={4}>
+                        <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Iron"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} lg={12} md={12} xl={12}>
                         <label>Mine A</label>
                         <Radio
-                          checked={this.state.selectedValue === 'a'}
+                          checked={this.state.selectedValue === "a"}
                           onChange={this.handleChange}
                           value="a"
                           name="Mine A"
                           aria-label="A"
-                          icon={<FiberManualRecord className={classes.radioUnchecked}/>}
-                          checkedIcon={<FiberManualRecord className={classes.radioChecked}/>}
+                          icon={
+                            <FiberManualRecord
+                              className={classes.radioUnchecked}
+                            />
+                          }
+                          checkedIcon={
+                            <FiberManualRecord
+                              className={classes.radioChecked}
+                            />
+                          }
                           classes={{
-                            checked: classes.radio,
+                            checked: classes.radio
                           }}
+                        />
                         />
                         <label>Mine B</label>
                         <Radio
-                          checked={this.state.selectedValue === 'b'}
+                          checked={this.state.selectedValue === "b"}
                           onChange={this.handleChange}
                           value="b"
                           name="radio button demo"
@@ -337,7 +400,7 @@ class UserProfile extends React.Component {
                         />
                           <label>Mine C</label>
                         <Radio
-                          checked={this.state.selectedValue === 'c'}
+                          checked={this.state.selectedValue === "c"}
                           onChange={this.handleChange}
                           value="C"
                           name="radio button demo"
@@ -411,14 +474,14 @@ class UserProfile extends React.Component {
                           onChange={this.handleChange}
                           name="Month"
                           inputProps={{
-                            id: 'age-required',
+                            id: "age-required",
                           }}
                           className={classes.selectEmpty}
                         >
 
-                          <MenuItem value={10}>January</MenuItem>
-                          <MenuItem value={20}>February</MenuItem>
-                          <MenuItem value={30}>March</MenuItem>
+                            <MenuItem value={10}>January</MenuItem>
+                            <MenuItem value={20}>February</MenuItem>
+                            <MenuItem value={30}>March</MenuItem>
                             <MenuItem value={30}>April</MenuItem>
                             <MenuItem value={30}>May</MenuItem>
                             <MenuItem value={30}>June</MenuItem>
@@ -511,21 +574,21 @@ class UserProfile extends React.Component {
                       </GridItem>
                       <GridItem xs={12} lg={2} md={2}>
                         <CustomInput
-                        id="regular"
-                        inputProps={{
-                          placeholder: "No of Rainy Days"
-                        }}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
+                          id="regular"
+                          inputProps={{
+                            placeholder: "No of Rainy Days"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
                         />
                         </GridItem>
-                        <GridItem xs={12} lg={12} md={12}>
-                          <center>
-                            <Button color="primary" type="success">
-                              Submit
-                            </Button>
-                          </center>
+                      <GridItem xs={12} lg={12} md={12}>
+                        <center>
+                          <Button color="primary" type="success">
+                            Submit
+                          </Button>
+                        </center>
                       </GridItem>
                   </GridContainer>
                 </ExpansionPanelDetails>

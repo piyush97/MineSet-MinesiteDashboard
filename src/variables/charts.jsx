@@ -108,7 +108,7 @@ const AirQuality = {
             begin: (data.index + 1) * delays2,
             dur: durations2,
             from: 0,
-            to: 1,
+            to: 5,
             easing: "ease"
           }
         });
@@ -156,7 +156,7 @@ const WaterQuality = {
             begin: (data.index + 1) * delays2,
             dur: durations2,
             from: 0,
-            to: 1,
+            to: 5,
             easing: "ease"
           }
         });
@@ -178,7 +178,7 @@ const completedTasksChart = {
       tension: -10
     }),
     low: 10,
-    high: 500, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    high: 320,
     chartPadding: {
       top: 0,
       right: 0,
