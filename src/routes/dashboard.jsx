@@ -2,7 +2,7 @@
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
 // import ContentPaste from "@material-ui/icons/ContentPaste";
-// import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import LibraryBooks from "@material-ui/icons/LibraryBooks";
 // import BubbleChart from "@material-ui/icons/BubbleChart";
 // import LocationOn from "@material-ui/icons/LocationOn";
 // import Notifications from "@material-ui/icons/Notifications";
@@ -11,7 +11,7 @@ import Person from "@material-ui/icons/Person";
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 import TableList from "views/TableList/TableList.jsx";
-// import Typography from "views/Typography/Typography.jsx";
+import Typography from "views/Typography/Typography.jsx";
 // import Icons from "views/Icons/Icons.jsx";
 // import Maps from "views/Maps/Maps.jsx";
 // import NotificationsPage from "views/Notifications/Notifications.jsx";
@@ -39,13 +39,13 @@ const dashboardRoutes = [
     icon: "Person",
     component: TableList
   },
-  // {
-  //   path: "/typography",
-  //   sidebarName: "Typography",
-  //   navbarName: "Typography",
-  //   icon: LibraryBooks,
-  //   component: Typography
-  // },
+  {
+    path: "/prediction",
+    sidebarName: "Prediction",
+    navbarName: "Prediction",
+    icon: LibraryBooks,
+    component: Typography
+  },
   // {
   //   path: "/icons",
   //   sidebarName: "Icons",

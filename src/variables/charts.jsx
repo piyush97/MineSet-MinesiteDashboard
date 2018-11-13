@@ -291,7 +291,6 @@ const NoiseQuality = {
   }
 };
 
-
 module.exports = {
   dailySalesChart,
   AirQuality,
