@@ -79,7 +79,7 @@ const dailySalesChart = {
 
 var AirQuality = {
   data: {
-    labels: [ "PM 10", "PM 2.5", "No2", "O3", "CO", "SO2", "NH3", "Pb" ],
+    labels: ["PM 10", "PM 2.5", "No2", "O3", "CO", "SO2", "NH3", "Pb"],
     series: [[20, 22, 35, 42, 0.29, 32, 128, 0.33]]
   },
   options: {
@@ -127,8 +127,16 @@ var AirQuality = {
 
 const WaterQuality = {
   data: {
-    labels: [ "pH", "TDS","Chloride","Sulphate","Nitrates","Phloride","Iron"],
-    series: [[6.8,40.0,52.7,10.7,28,0.76,68]]
+    labels: [
+      "pH",
+      "TDS",
+      "Chloride",
+      "Sulphate",
+      "Nitrates",
+      "Phloride",
+      "Iron"
+    ],
+    series: [[6.8, 40.0, 52.7, 10.7, 28, 0.76, 68]]
   },
   options: {
     axisX: {
@@ -178,7 +186,16 @@ const WaterQuality = {
 
 const completedTasksChart = {
   data: {
-    labels: ["Location", "Temperature Day", "Temperature Night", "Relative Humidity Max", "Relative Humidity Min", "Wind Speed", "Rainfall", "No of Rainy Days" ],
+    labels: [
+      "Location",
+      "Temperature Day",
+      "Temperature Night",
+      "Relative Humidity Max",
+      "Relative Humidity Min",
+      "Wind Speed",
+      "Rainfall",
+      "No of Rainy Days"
+    ],
     series: [["A", 38.5, 32.2, 300, 280, 240, 200, 190]]
   },
   options: {
