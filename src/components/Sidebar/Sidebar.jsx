@@ -21,7 +21,7 @@ const Sidebar = ({ ...props }) => {
   function activeRoute(routeName) {
     return props.location.pathname.indexOf(routeName) > -1 ? true : false;
   }
-  const { classes, color, logo, image, routes } = props;
+  const { classes, color, image, routes } = props;
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -71,7 +71,7 @@ const Sidebar = ({ ...props }) => {
     <div className={classes.logo}>
       <a href="/" className={classes.logoLink}>
         <div className={classes.logoImage}>
-          <img src={logo} alt="logo" className={classes.img} />
+          <img src="https://avatars1.githubusercontent.com/u/44876251?s=200&v=4" alt="logo" className={classes.img} />
         </div>
         Minesite
       </a>
