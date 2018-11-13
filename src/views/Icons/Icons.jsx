@@ -76,24 +76,36 @@ class Icons extends React.Component {
         {
           text: "MineSet Report",
           style: "header",
-          image: Logo,
           width: 150
         },
         {
-          text: `Air Quality: 
+          text: `
+          
+          Air Quality: 
+          
           Core Values: ${this.state.core}
-          Buffer Values: ${this.state.buffer} 
+
+          Buffer Values: ${this.state.buffer}
+
           Surface Water Analysis:
+
           Sample 1 Value: ${this.state.sample1}
+
           Sample 2 Value: ${this.state.sample2}
+
           Ambient Noise Analysis:
+
           Industrial Area Noise: Day: ${this.state.IndDay}
+
           Industrial Area Noise: Night: ${this.state.IndNight}
+
           Residential Area Noise: Day: ${this.state.ResDay}
+          
           Residential Area Noise: Night: ${this.state.ResNight}
           `,
-          fontSize: 20,
-          style: "subheader"
+          fontSize: 18,
+          style: "subheader",
+          image: Logo
         }
       ],
 

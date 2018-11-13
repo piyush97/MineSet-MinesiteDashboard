@@ -9,8 +9,12 @@ function Footer({ ...props }) {
   const { classes } = props;
   return (
     <footer className={classes.footer}>
-      <p className={classes.right}>
-        <span> Created by Team Avocets </span>
+      <p className={classes.center}>
+        <span>
+          <center>
+            Created by Team <b>Avocets</b>
+          </center>
+        </span>
       </p>
     </footer>
   );
