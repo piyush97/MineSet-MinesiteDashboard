@@ -36,9 +36,13 @@ class Icons extends React.Component {
 
     this.handleChangIndNight = this.handleChangIndNight.bind(this);
 
-    this.handleChangsample1 = this.handleChangIndNight.bind(this);
+    this.handleChangsample1 = this.handleChangsample1.bind(this);
 
-    this.handleChangsample2 = this.handleChangIndNight.bind(this);
+    this.handleChangsample2 = this.handleChangsample2.bind(this);
+
+    this.handleChangResDay = this.handleChangResDay.bind(this);
+
+    this.handleChangeResNight = this.handleChangeResNight.bind(this);
   }
 
   handleChangCore(event) {
@@ -59,7 +63,12 @@ class Icons extends React.Component {
   handleChangIndNight(event) {
     this.setState({ IndNight: event.target.value });
   }
-
+  handleChangResDay(event) {
+    this.setState({ ResDay: event.target.value });
+  }
+  handleChangeResNight(event) {
+    this.setState({ ResNight: event.target.value });
+  }
   download() {
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     var docDefinition = {
@@ -74,9 +83,14 @@ class Icons extends React.Component {
           text: `Air Quality: 
           Core Values: ${this.state.core}
           Buffer Values: ${this.state.buffer} 
-          Surface Water Analysis
+          Surface Water Analysis:
           Sample 1 Value: ${this.state.sample1}
           Sample 2 Value: ${this.state.sample2}
+          Ambient Noise Analysis:
+          Industrial Area Noise: Day: ${this.state.IndDay}
+          Industrial Area Noise: Night: ${this.state.IndNight}
+          Residential Area Noise: Day: ${this.state.ResDay}
+          Residential Area Noise: Night: ${this.state.ResNight}
           `,
           fontSize: 20,
           style: "subheader"
@@ -116,7 +130,6 @@ class Icons extends React.Component {
             }}
           />
           <CustomInput
-            id="air quality"
             value={this.state.buffer}
             inputProps={{
               placeholder: "Buffer Zone",
@@ -131,8 +144,6 @@ class Icons extends React.Component {
             <h1>Surface Water Analysis</h1>
           </Info>
           <CustomInput
-            id="air quality"
-            value={this.state.sample1}
             inputProps={{
               placeholder: "Sample 1 Value",
               value: this.state.sample1,
@@ -143,8 +154,6 @@ class Icons extends React.Component {
             }}
           />
           <CustomInput
-            id="air quality"
-            value={this.state.sample2}
             inputProps={{
               placeholder: "Sample 2 Value",
               value: this.state.sample2,
@@ -158,7 +167,6 @@ class Icons extends React.Component {
             <h1>Ambient Noise Analysis</h1>
           </Info>
           <CustomInput
-            id="air quality"
             inputProps={{
               placeholder: "Industrial Area Noise: Day",
               value: this.state.IndDay,
@@ -169,7 +177,6 @@ class Icons extends React.Component {
             }}
           />
           <CustomInput
-            id="air quality"
             inputProps={{
               placeholder: "Industrial Area Noise: Night",
               value: this.state.IndNight,
@@ -180,24 +187,28 @@ class Icons extends React.Component {
             }}
           />
           <CustomInput
-            id="air quality"
             inputProps={{
-              placeholder: "Residential Area Noise: Morning"
+              placeholder: "Residential Area Noise: Day",
+              value: this.state.ResDay,
+              onChange: this.handleChangResDay
             }}
             formControlProps={{
               fullWidth: true
             }}
           />
           <CustomInput
-            id="air quality"
             inputProps={{
-              placeholder: "Residential Area Noise: Day"
+              placeholder: "Residential Area Noise: Night",
+              value: this.state.ResNight,
+              onChange: this.handleChangeResNight
             }}
             formControlProps={{
               fullWidth: true
             }}
           />
-          <Button onClick={this.download}>Generate Report</Button>
+          <center>
+            <Button onClick={this.download}>Generate Report</Button>
+          </center>
         </GridItem>
       </GridContainer>
     );
