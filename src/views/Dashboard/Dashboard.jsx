@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
                     About Us
                   </GridItem>
                   <GridItem xs={12} sm={12} md={2}>
-                    <img src="image.jpg" alt="someimage" />
+                    <img src="https://updateodisha.com/wp-content/uploads/2016/11/Invest-Odisha.jpg" alt="someimage" height="100px" />
                   </GridItem>
                 </GridContainer>
               </CardBody>
@@ -56,7 +56,7 @@ class Dashboard extends React.Component {
             </center>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <Card chart>
+            <Card chart style={{height:"300px"}}>
               <CardBody>
                 <CardHeader color="warning">
                 <h1><center>Data Entry</center></h1>
@@ -69,7 +69,7 @@ class Dashboard extends React.Component {
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <Card chart>
+            <Card chart style={{height:"300px"}}>
               <CardBody>
                 <CardHeader color="success">
                 <h1><center>Visual Analysis</center></h1>
@@ -81,7 +81,7 @@ class Dashboard extends React.Component {
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <Card chart>
+            <Card chart style={{height:"300px"}}>
               <CardBody>
                 <CardHeader color="primary">
                   <h1>
@@ -97,7 +97,7 @@ class Dashboard extends React.Component {
         </GridContainer>
         <GridContainer>
           <GridItem xs={12} sm={12} md={6}>
-            <Card chart>
+            <Card chart style={{height:"300px"}}>
               <CardBody>
               <CardHeader color="info">
                 <h1>Inspection Drives</h1>
@@ -109,7 +109,7 @@ class Dashboard extends React.Component {
             </Card>
           </GridItem>
         <GridItem xs={12} sm={12} md={6}>
-          <Card chart>
+            <Card chart style={{height:"300px"}}>
             <CardBody>
               <CardHeader color="info">
                 <h1>Mitigation Plans</h1>
