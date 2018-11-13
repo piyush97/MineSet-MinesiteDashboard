@@ -27,7 +27,8 @@ class Dashboard extends React.Component {
     this.setState({ value: index });
   };
   render() {
-    return <div>
+    return (
+      <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Card chart>
@@ -44,7 +45,11 @@ class Dashboard extends React.Component {
                     About Us
                   </GridItem>
                   <GridItem xs={12} sm={12} md={2}>
-                    <img src="https://updateodisha.com/wp-content/uploads/2016/11/Invest-Odisha.jpg" alt="someimage" height="100px" />
+                    <img
+                      src="https://updateodisha.com/wp-content/uploads/2016/11/Invest-Odisha.jpg"
+                      alt="someimage"
+                      height="100px"
+                    />
                   </GridItem>
                 </GridContainer>
               </CardBody>
@@ -56,39 +61,43 @@ class Dashboard extends React.Component {
             </center>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <Card chart style={{height:"300px"}}>
+            <Card chart style={{ height: "300px" }}>
               <CardBody>
                 <CardHeader color="warning">
-                <h1><center>Data Entry</center></h1>
+                  <h1>
+                    <center>Data Entry</center>
+                  </h1>
                 </CardHeader>
-                <p style={{ fontSize: '20px', paddingTop: '18px' }}>
-                  Periodic Data Entry of Air Quality, Water Quality and
-                  Ambient Noise
+                <p style={{ fontSize: "20px", paddingTop: "18px" }}>
+                  Periodic Data Entry of Air Quality, Water Quality and Ambient
+                  Noise
                 </p>
               </CardBody>
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <Card chart style={{height:"300px"}}>
+            <Card chart style={{ height: "300px" }}>
               <CardBody>
                 <CardHeader color="success">
-                <h1><center>Visual Analysis</center></h1>
+                  <h1>
+                    <center>Visual Analysis</center>
+                  </h1>
                 </CardHeader>
-                <p style={{ fontSize: '20px', paddingTop: '18px' }}>
+                <p style={{ fontSize: "20px", paddingTop: "18px" }}>
                   Graphs and Statistics of the available data
                 </p>
               </CardBody>
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <Card chart style={{height:"300px"}}>
+            <Card chart style={{ height: "300px" }}>
               <CardBody>
                 <CardHeader color="primary">
                   <h1>
                     <center>Consent Orders</center>
                   </h1>
                 </CardHeader>
-                <p style={{ fontSize: '20px', paddingTop: '18px' }}>
+                <p style={{ fontSize: "20px", paddingTop: "18px" }}>
                   Approved orders uploaded from the Mineside
                 </p>
               </CardBody>
@@ -97,31 +106,32 @@ class Dashboard extends React.Component {
         </GridContainer>
         <GridContainer>
           <GridItem xs={12} sm={12} md={6}>
-            <Card chart style={{height:"300px"}}>
+            <Card chart style={{ height: "300px" }}>
               <CardBody>
-              <CardHeader color="info">
-                <h1>Inspection Drives</h1>
-              </CardHeader>
-              <p style={{ fontSize: '20px', paddingTop: '18px' }}>
-                Approved orders uploaded from the Mineside
-              </p>
+                <CardHeader color="info">
+                  <h1>Inspection Drives</h1>
+                </CardHeader>
+                <p style={{ fontSize: "20px", paddingTop: "18px" }}>
+                  Approved orders uploaded from the Mineside
+                </p>
               </CardBody>
             </Card>
           </GridItem>
-        <GridItem xs={12} sm={12} md={6}>
-            <Card chart style={{height:"300px"}}>
-            <CardBody>
-              <CardHeader color="info">
-                <h1>Mitigation Plans</h1>
-              </CardHeader>
-              <p style={{ fontSize: '20px', paddingTop: '18px' }}>
-                Recommended Actions in order to tackle address pollution
-              </p>
-            </CardBody>
-          </Card>
-        </GridItem>
+          <GridItem xs={12} sm={12} md={6}>
+            <Card chart style={{ height: "300px" }}>
+              <CardBody>
+                <CardHeader color="info">
+                  <h1>Mitigation Plans</h1>
+                </CardHeader>
+                <p style={{ fontSize: "20px", paddingTop: "18px" }}>
+                  Recommended Actions in order to tackle address pollution
+                </p>
+              </CardBody>
+            </Card>
+          </GridItem>
         </GridContainer>
-      </div>;
+      </div>
+    );
   }
 }
 

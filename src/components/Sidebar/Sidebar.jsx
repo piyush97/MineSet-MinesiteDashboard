@@ -71,7 +71,11 @@ const Sidebar = ({ ...props }) => {
     <div className={classes.logo}>
       <a href="/" className={classes.logoLink}>
         <div className={classes.logoImage}>
-          <img src="https://avatars1.githubusercontent.com/u/44876251?s=200&v=4" alt="logo" className={classes.img} />
+          <img
+            src="https://avatars1.githubusercontent.com/u/44876251?s=200&v=4"
+            alt="logo"
+            className={classes.img}
+          />
         </div>
         Minesite
       </a>

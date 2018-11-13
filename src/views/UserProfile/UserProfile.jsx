@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // import InputLabel from "@material-ui/core/InputLabel";
@@ -20,7 +21,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Button, FormHelperText, Radio } from "@material-ui/core";
+import { Button, FormHelperText, Radio, Select, FormControl, InputLabel, MenuItem } from "@material-ui/core";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import moment from "moment";
 const styles = theme => ({
@@ -38,6 +39,7 @@ class UserProfile extends React.Component{
     super(props);
     this.state = {
       selectedValue: null,
+      age: "",
       acccordianchoice: ""
     };
   }
@@ -363,10 +365,36 @@ class UserProfile extends React.Component{
                     <Typography className={classes.heading}>Ambient Noise Quality</Typography>
                   </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
-                      <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
-                      </Typography>
+                    <GridContainer>
+                      <GridItem xs={12} lg={7} md={7}>
+                        <b>Time:</b> {this.state.acccordianchoice}
+                      </GridItem>
+                    </GridContainer>
+                  <GridContainer>
+                    <GridItem xs={12} lg={6} md={6}>
+                          <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Decible- Day"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                        />
+                        </GridItem>
+                        <GridItem xs={12} lg={6} md={6}>
+                          <CustomInput
+                          id="regular"
+                          inputProps={{
+                            placeholder: "Decible- Night"
+                          }}
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                          />
+                      </GridItem>
+                        <Button type="submit">Submit</Button>
+                  </GridContainer>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
               <ExpansionPanel>
@@ -374,10 +402,132 @@ class UserProfile extends React.Component{
                   <Typography className={classes.heading}>Meterological data</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
-                  </Typography>
+                   <GridContainer>
+                      <GridItem xs={12} lg={12} md={12}>
+                      <FormControl required className={classes.formControl}>
+                        <InputLabel htmlFor="age-required">Month</InputLabel>
+                        <Select
+                          value={this.state.age}
+                          onChange={this.handleChange}
+                          name="Month"
+                          inputProps={{
+                            id: 'age-required',
+                          }}
+                          className={classes.selectEmpty}
+                        >
+
+                          <MenuItem value={10}>January</MenuItem>
+                          <MenuItem value={20}>February</MenuItem>
+                          <MenuItem value={30}>March</MenuItem>
+                            <MenuItem value={30}>April</MenuItem>
+                            <MenuItem value={30}>May</MenuItem>
+                            <MenuItem value={30}>June</MenuItem>
+                            <MenuItem value={30}>July</MenuItem>
+                            <MenuItem value={30}>August</MenuItem>
+                            <MenuItem value={30}>September</MenuItem>
+                            <MenuItem value={30}>October</MenuItem>
+                            <MenuItem value={30}>Novemeber</MenuItem>
+                            <MenuItem value={30}>December</MenuItem>
+
+                        </Select>
+                        <FormHelperText>Required</FormHelperText>
+                      </FormControl>
+                      <FormControl variant="outlined" className={classes.formControl}>
+                        <InputLabel
+                          ref={ref => {
+                            this.InputLabelRef = ref;
+                          }}
+                          htmlFor="outlined-age-simple"
+                        >
+                          Month
+                        </InputLabel>
+                        </FormControl>
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                        id="regular"
+                        inputProps={{
+                          placeholder: "Temp: Max"
+                        }}
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                      />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                        id="regular"
+                        inputProps={{
+                          placeholder: "Temp: MIN"
+                        }}
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                      />
+                      </GridItem>
+                      <GridItem xs={12} lg={3} md={3}>
+                        <CustomInput
+                        id="regular"
+                        inputProps={{
+                          placeholder: "Relative Humidity: Max"
+                        }}
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                      />
+                      </GridItem>
+                      <GridItem xs={12} lg={2} md={2}>
+                        <CustomInput
+                        id="regular"
+                        inputProps={{
+                          placeholder: "Relative Humidity: Min"
+                        }}
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                      />
+                      </GridItem>
+                      <GridItem xs={12} lg={2} md={2}>
+                        <CustomInput
+                        id="regular"
+                        inputProps={{
+                          placeholder: "Wind Speed Average"
+                        }}
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                      />
+                      </GridItem>
+                      <GridItem xs={12} lg={2} md={2}>
+                        <CustomInput
+                        id="regular"
+                        inputProps={{
+                          placeholder: "Rainfall (mm)"
+                        }}
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                      />
+                      </GridItem>
+                      <GridItem xs={12} lg={2} md={2}>
+                        <CustomInput
+                        id="regular"
+                        inputProps={{
+                          placeholder: "No of Rainy Days"
+                        }}
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                        />
+                        </GridItem>
+                        <GridItem xs={12} lg={12} md={12}>
+                          <center>
+                            <Button color="primary" type="success">
+                              Submit
+                            </Button>
+                          </center>
+                      </GridItem>
+                  </GridContainer>
                 </ExpansionPanelDetails>
               </ExpansionPanel>
             </div>
@@ -392,10 +542,7 @@ class UserProfile extends React.Component{
                     <Typography className={classes.heading}>Water Consumption</Typography>
                   </ExpansionPanelSummary>
                   <ExpansionPanelDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
-                  </Typography>
+
                 </ExpansionPanelDetails>
               </ExpansionPanel>
               <ExpansionPanel>
@@ -403,10 +550,7 @@ class UserProfile extends React.Component{
                   <Typography className={classes.heading}>Raw Material Consumption</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
-                  </Typography>
+
                 </ExpansionPanelDetails>
               </ExpansionPanel>
             </div>
@@ -417,18 +561,6 @@ class UserProfile extends React.Component{
     );
   }
 }
-// function UserProfile(props) {
-//   return (
-//     <div>
-//       <GridContainer>
-//         <GridItem xs={12} sm={12} md={8}>
-//           <Card>
-//           </Card>
-//         </GridItem>
-//       </GridContainer>
-//     </div>
-//   );
-// }
 UserProfile.propTypes = {
   classes: PropTypes.object.isRequired,
 };
