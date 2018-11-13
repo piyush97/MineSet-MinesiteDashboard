@@ -16,6 +16,7 @@ import Warning from "components/Typography/Warning.jsx";
 import {
   AirQuality,
   WaterQuality,
+  NoiseQuality,
   completedTasksChart
 } from "variables/charts.jsx";
 import AccessTime from "@material-ui/icons/AccessTime";
@@ -98,10 +99,10 @@ class TableList extends React.Component {
             <CardHeader color="info">
               <ChartistGraph
                 className="ct-chart"
-                data={WaterQuality.data}
+                data={NoiseQuality.data}
                 type="Bar"
-                options={WaterQuality.options}
-                responsiveOptions={WaterQuality.responsiveOptions}
+                options={NoiseQuality.options}
+                responsiveOptions={NoiseQuality.responsiveOptions}
                 listener={WaterQuality.animation}
               />
             </CardHeader>
