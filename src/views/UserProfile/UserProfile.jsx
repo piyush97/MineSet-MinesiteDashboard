@@ -106,7 +106,7 @@ class UserProfile extends React.Component {
             <h1>Periodic Data Entry</h1>
             {this.state.SweetAlert &&
               <SweetAlert success title="Success!" onConfirm={this.hideAlert}>
-               Data Submitted Succesfully and is Available in the Data visualisation Section
+                Data Submitted Succesfully and is Available in the Data visualisation Section
               </SweetAlert>
             }
             <Card>

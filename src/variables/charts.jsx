@@ -69,7 +69,15 @@ const dailySalesChart = {
 // // // AirQuality data
 // #############################
 
-const AirQuality = {
+// function shuffleArray(AirQuality) {
+//   for (let i = AirQuality.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [AirQuality[i], AirQuality[j]] = [AirQuality[j], AirQuality[i]];
+//   }
+// }
+// shuffleArray(AirQuality);
+
+var AirQuality = {
   data: {
     labels: [ "PM 10", "PM 2.5", "No2", "O3", "CO", "SO2", "NH3", "Pb" ],
     series: [[20, 22, 35, 42, 0.29, 32, 128, 0.33]]
