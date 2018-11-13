@@ -22,6 +22,8 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import SweetAlert from "react-bootstrap-sweetalert";
+import { Redirect } from "react-router-dom";
+
 import {
   Button,
   FormHelperText,
@@ -51,8 +53,10 @@ class UserProfile extends React.Component {
       age: "",
       acccordianchoice: "",
       SweetAlert: false,
-      hideAlert: false
+      hideAlert: false,
+      redirect: false
     };
+    this.hideAlert = this.hideAlert.bind(this);
     this.modalclicker = this.modalclicker.bind(this);
   }
   componentDidMount() {
@@ -66,6 +70,19 @@ class UserProfile extends React.Component {
       1000
     );
   }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/visualanalysis" />;
+    }
+  };
+
   handleChange = event => {
     this.setState({
       selectedValue: event.target.value
@@ -74,8 +91,11 @@ class UserProfile extends React.Component {
 
   modalclicker() {
     this.setState({ SweetAlert: true });
+    // renderRedirect();
   }
-
+  hideAlert() {
+    this.setState({ SweetAlert: false });
+  }
   render() {
     const { classes } = this.props;
 
@@ -85,8 +105,8 @@ class UserProfile extends React.Component {
           <GridItem xs={12} sm={12} md={12}>
             <h1>Periodic Data Entry</h1>
             {this.state.SweetAlert &&
-              <SweetAlert success title="Woot!" onConfirm={this.hideAlert}>
-                I did it!
+              <SweetAlert success title="Success!" onConfirm={this.hideAlert}>
+               Data Submitted Succesfully and is Available in the Data visualisation Section
               </SweetAlert>
             }
             <Card>
