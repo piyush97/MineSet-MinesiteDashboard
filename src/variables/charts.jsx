@@ -66,33 +66,20 @@ const dailySalesChart = {
 };
 
 // ##############################
-// // // Email Subscriptions
+// // // AirQuality data
 // #############################
 
-const emailsSubscriptionChart = {
+const AirQuality = {
   data: {
-    labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "Mai",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
-    ],
-    series: [[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]]
+    labels: [ "PM 10", "PM 2.5", "No2", "O3", "CO", "SO2", "NH3", "Pb" ],
+    series: [[20, 22, 35, 42, 0.29, 32, 128, 0.33]]
   },
   options: {
     axisX: {
       showGrid: false
     },
     low: 0,
-    high: 1000,
+    high: 100,
     chartPadding: {
       top: 0,
       right: 5,
@@ -130,21 +117,68 @@ const emailsSubscriptionChart = {
   }
 };
 
+const WaterQuality = {
+  data: {
+    labels: [ "pH", "TDS","Chloride","Sulphate","Nitrates","Phloride","Iron"],
+    series: [[6.8,40.0,52.7,10.7,28,0.76,68]]
+  },
+  options: {
+    axisX: {
+      showGrid: false
+    },
+    low: 0,
+    high: 100,
+    chartPadding: {
+      top: 0,
+      right: 5,
+      bottom: 0,
+      left: 0
+    }
+  },
+  responsiveOptions: [
+    [
+      "screen and (max-width: 640px)",
+      {
+        seriesBarDistance: 5,
+        axisX: {
+          labelInterpolationFnc: function(value) {
+            return value[0];
+          }
+        }
+      }
+    ]
+  ],
+  animation: {
+    draw: function(data) {
+      if (data.type === "bar") {
+        data.element.animate({
+          opacity: {
+            begin: (data.index + 1) * delays2,
+            dur: durations2,
+            from: 0,
+            to: 1,
+            easing: "ease"
+          }
+        });
+      }
+    }
+  }
+};
 // ##############################
 // // // Completed Tasks
 // #############################
 
 const completedTasksChart = {
   data: {
-    labels: ["12am", "3pm", "6pm", "9pm", "12pm", "3am", "6am", "9am"],
-    series: [[230, 750, 450, 300, 280, 240, 200, 190]]
+    labels: ["Location", "Temperature Day", "Temperature Night", "Relative Humidity Max", "Relative Humidity Min", "Wind Speed", "Rainfall", "No of Rainy Days" ],
+    series: [["A", 38.5, 32.2, 300, 280, 240, 200, 190]]
   },
   options: {
     lineSmooth: Chartist.Interpolation.cardinal({
-      tension: 0
+      tension: -10
     }),
-    low: 0,
-    high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    low: 10,
+    high: 500, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
       top: 0,
       right: 0,
@@ -185,6 +219,7 @@ const completedTasksChart = {
 
 module.exports = {
   dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
+  AirQuality,
+  completedTasksChart,
+  WaterQuality
 };

@@ -34,7 +34,7 @@ const styles = theme => ({
   }
 });
 
-class UserProfile extends React.Component{
+class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
