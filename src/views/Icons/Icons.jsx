@@ -79,6 +79,16 @@ class Icons extends React.Component {
           width: 150
         },
         {
+          text: "Make in ",
+          style: "headerr",
+          width: 150
+        },
+        {
+          text: "ODISHA",
+          style: "headerrr",
+          width: 150
+        },
+        {
           text: `
           
           Air Quality: 
@@ -113,7 +123,20 @@ class Icons extends React.Component {
         header: {
           fontSize: 22,
           bold: true,
-          alignment: "center"
+          alignment: "left",
+          color: "red"
+        },
+        headerr: {
+          fontSize: 22,
+          bold: true,
+          alignment: "right",
+          color: "red"
+        },
+        headerrr: {
+          fontSize: 22,
+          bold: true,
+          alignment: "right",
+          color: "black"
         },
         anotherStyle: {
           italic: true,
