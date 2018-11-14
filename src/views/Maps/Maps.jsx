@@ -16,6 +16,27 @@ class Maps extends React.Component {
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     var docDefinition = {
       pageOrientation: "landscape",
+      // background:'MineSet',
+      content: [
+        {
+          text: "Certificate of Authentication",
+          style: "header",
+          alignment: "center",
+          fontSize: 30
+        },
+        {
+          text:
+            "\n\n\n\nThis is to certify that Talcher mine located in Angul district owned \nby Mr Talcher Mine Owner has met international standards and complied\n with pollution control and effluent discharge rules and regulations .\n\n",
+          alignment: "center",
+          fontSize: 18
+        },
+        {
+          text:
+            "\nIssued by OSPCB on 14th Nov 2018 and valid till 14th Dec 2018",
+          alignment: "center",
+          fontSize: 18
+        }
+      ],
       footer: {
         columns: [
           "Field Officer",
@@ -34,7 +55,14 @@ class Maps extends React.Component {
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <center>
-              <Button style={{ color: "green",marginTop:"50vh", border: "5px solid" }} onClick={this.Certification}>
+              <Button
+                style={{
+                  color: "green",
+                  marginTop: "40vh",
+                  border: "5px solid"
+                }}
+                onClick={this.Certification}
+              >
                 Get Certified
               </Button>
             </center>
