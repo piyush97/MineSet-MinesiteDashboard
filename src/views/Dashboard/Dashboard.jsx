@@ -34,7 +34,7 @@ class Dashboard extends React.Component {
             <Card chart>
               <CardHeader color="success">
                 <center>
-                  <h1> Welcome to Mine Site </h1>
+                  <h1> Welcome to Talcher Mine </h1>
                 </center>
               </CardHeader>
               <CardBody>

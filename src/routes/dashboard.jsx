@@ -20,8 +20,8 @@ import Icons from "views/Icons/Icons.jsx";
 const dashboardRoutes = [
   {
     path: "/dashboard",
-    sidebarName: "Dashboard",
-    navbarName: "Material Dashboard",
+    sidebarName: "Home",
+    navbarName: "Home",
     icon: Dashboard,
     component: DashboardPage
   },
