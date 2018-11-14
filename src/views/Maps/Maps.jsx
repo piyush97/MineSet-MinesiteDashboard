@@ -34,7 +34,7 @@ class Maps extends React.Component {
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <center>
-              <Button style={{ color: "green", border: "5px solid" }} onClick={this.Certification}>
+              <Button style={{ color: "green",marginTop:"50vh", border: "5px solid" }} onClick={this.Certification}>
                 Get Certified
               </Button>
             </center>
